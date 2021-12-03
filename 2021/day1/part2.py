@@ -13,4 +13,5 @@ with open("input.txt", "r") as input_file:
 
         if sliding_window_2 > sliding_window_1:
             count += 1
+
     print(count)
