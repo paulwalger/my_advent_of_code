@@ -4,7 +4,7 @@ How many sums are larger than the previous sum?
 """
 
 with open("input.txt", "r") as input_file:
-    measurements = [int(m.rstrip()) for m in input_file.readlines()]
+    measurements = [int(m.rstrip()) for m in input_file]
     count = 0
 
     for idx in range(0, len(measurements) - 3):
