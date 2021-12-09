@@ -3,9 +3,7 @@ class Grid:
         self.grid = [list(map(int, line.split())) for line in grid_lines]
         self.nb_columns = len(self.grid[0])
         self.nb_rows = len(self.grid)
-        self.marked_grid = [
-            [0 for _ in range(self.nb_columns)] for _ in range(self.nb_rows)
-        ]
+        self.marked_grid = [[0 for _ in range(self.nb_columns)] for _ in range(self.nb_rows)]
         self.has_already_won = False
 
     def __str__(self) -> str:
@@ -14,12 +12,12 @@ class Grid:
     def has_won(self) -> bool:
         # check rows
         for row in self.marked_grid:
-            if sum(row) == self.nb_columns:
+            if all(row):
                 self.has_already_won = True
                 return True
         # check columns
         for col_idx in range(self.nb_columns):
-            if sum([row[col_idx] for row in self.marked_grid]) == self.nb_rows:
+            if all([row[col_idx] for row in self.marked_grid]):
                 self.has_already_won = True
                 return True
         return False
@@ -69,10 +67,7 @@ with open("draws.txt", "r") as draws_file:
                     sum_unmarked_numbers = grid.sum_unmarked_numbers()
                     print(f"Sum Unmarked Numbers: {sum_unmarked_numbers}")
                     print(f"Result: {number * sum_unmarked_numbers}")
-                if (
-                    len(list(filter(lambda grid: grid.has_already_won is False, grids)))
-                    == 0
-                ):
+                if all([grid.has_already_won for grid in grids]):
                     print("\nLast Winner:")
                     print(f"Grid: {grid}")
                     print(f"Last Number: {number}")
