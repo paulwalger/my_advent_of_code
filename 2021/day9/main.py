@@ -47,13 +47,12 @@ def get_size_bassin(x, y, heightmap, visited):
 
 def get_mult_bigest_size_bassins(heightmap):
     visited = set()
-    size_bassins = set()
+    size_bassins = []
     for low_point in get_low_points(heightmap):
         if low_point not in visited:
             size = get_size_bassin(*low_point, heightmap, visited)
-            size_bassins.add(size)
-            if len(size_bassins) > 3:
-                size_bassins.remove(min(size_bassins))
+            size_bassins.append(size)
+    size_bassins = sorted(size_bassins, reverse=True)[:3]
     return reduce(lambda a, b: a * b, size_bassins)
 
 
