@@ -8,7 +8,8 @@ def main():
                 current_elf = 0
             else:
                 current_elf += int(calorie.rstrip())
-
+        if elves[-1] != current_elf:  # if no empty endline
+            elves.append(current_elf)
         print(max(elves))
 
 
