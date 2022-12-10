@@ -24,16 +24,16 @@ def main():
         print(sum(cycle * cycles[cycle - 1] for cycle in (20, 60, 100, 140, 180, 220)))
 
         # part2
-        current_cycle = -40
+        current_cycle = 0
         rows = [[] for _ in range(6)]
         for row in rows:
-            current_cycle += 40
             for crt_idx, cycle in enumerate(range(current_cycle, current_cycle + 40)):
                 x = cycles[cycle]
                 if crt_idx in (x - 1, x, x + 1):
                     row.append("#")
                 else:
                     row.append(".")
+            current_cycle += 40
 
         for row in rows:
             print("".join(row))
