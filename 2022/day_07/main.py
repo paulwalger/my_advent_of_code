@@ -13,10 +13,7 @@ def move_to_new_dir(current_dir: Path, cd_dir):
 
 def recursive_total_size(dir: Path, size_by_dir: dict):
     return size_by_dir[dir]["size"] + sum(
-        [
-            recursive_total_size(sub_dir, size_by_dir)
-            for sub_dir in size_by_dir[dir]["sub_dirs"]
-        ]
+        [recursive_total_size(sub_dir, size_by_dir) for sub_dir in size_by_dir[dir]["sub_dirs"]]
     )
 
 
@@ -43,16 +40,11 @@ def main():
 
     # part1
     sum_part1 = sum(
-        [
-            size
-            for size in [
-                recursive_total_size(dir, size_by_dir) for dir in size_by_dir.keys()
-            ]
-            if size <= 100000
-        ]
+        [size for size in [recursive_total_size(dir, size_by_dir) for dir in size_by_dir.keys()] if size <= 100000]
     )
     print(
-        "Find all of the directories with a total size of at most 100000. What is the sum of the total sizes of those directories? ",
+        "Find all of the directories with a total size of at most 100000. "
+        "What is the sum of the total sizes of those directories? ",
         sum_part1,
     )
 
@@ -70,9 +62,7 @@ def main():
         min(
             [
                 size
-                for size in [
-                    recursive_total_size(dir, size_by_dir) for dir in size_by_dir.keys()
-                ]
+                for size in [recursive_total_size(dir, size_by_dir) for dir in size_by_dir.keys()]
                 if size >= minimum_delete
             ]
         ),

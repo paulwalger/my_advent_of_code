@@ -1,3 +1,23 @@
 {
-    "python.formatting.provider": "black"
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "python.testing.pytestArgs": ["."],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "ruff.nativeServer": "on",
+  "ruff.enable": true,
+  "files.exclude": {
+    // ".venv/": true,
+    ".pytest_cache/": true,
+    ".coverage": true,
+    ".ruff_cache/": true
+  },
+  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.ignore": ["*"]
 }

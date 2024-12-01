@@ -5,13 +5,60 @@ description = ""
 authors = ["pwalger <paulwalger@protonmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
+pre-commit = "^4.0.1"
 
-[tool.poetry.dev-dependencies]
-flake8 = "^6.0.0"
-black = "^22.10.0"
-isort = "^5.10.1"
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+
+line-length = 120
+exclude = [
+    ".github",
+    ".pytest_cache",
+    ".venv",
+    ".vscode",
+    "submodules",
+]
+target-version = "py312"
+
+[tool.ruff.lint]
+# select rules https://docs.astral.sh/ruff/rules/#rules
+select = [
+    "RUF",  # ruff
+    "F",    # pyflakes
+    "E",    # pydcodestyle Error
+    "W",    # pydcodestyle Warning
+    "I",    # Isort
+]
+ignore = ["RUF012"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = false
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"

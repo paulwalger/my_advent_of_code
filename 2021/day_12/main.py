@@ -47,7 +47,6 @@ def get_input_caves(file_name):
 
 
 def count_paths(path, quota_reached=False):
-
     current_cave = path[-1]
 
     if current_cave.is_end:
@@ -62,7 +61,7 @@ def count_paths(path, quota_reached=False):
             new_quota_reached = quota_reached
             if next_cave.is_small and not quota_reached and next_cave in path:
                 new_quota_reached = True
-            new_path = path + [next_cave]
+            new_path = [*path, next_cave]
             count += count_paths(new_path, new_quota_reached)
 
     return count

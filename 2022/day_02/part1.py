@@ -28,19 +28,15 @@ def score_round(opponent_enc_play: str, my_enc_play: str):
     if opponent_play == my_play:
         result_score = 3
     if (
-        opponent_play == ROCK
-        and my_play == PAPER
-        or opponent_play == PAPER
-        and my_play == SCISSOR
-        or opponent_play == SCISSOR
-        and my_play == ROCK
+        (opponent_play == ROCK and my_play == PAPER)
+        or (opponent_play == PAPER and my_play == SCISSOR)
+        or (opponent_play == SCISSOR and my_play == ROCK)
     ):
         result_score = 6
     return value_by_play[my_play] + result_score
 
 
 def main():
-
     with open("input.txt", "r") as input_file:
         rounds = [line.strip().split() for line in input_file]
         scores = [score_round(round[0], round[1]) for round in rounds]

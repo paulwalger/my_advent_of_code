@@ -3,7 +3,6 @@ def get_cycles_v(instructions):
     x = 1
 
     for instruction in instructions:
-
         if instruction == "noop":
             yield x
 

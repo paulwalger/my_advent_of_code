@@ -1,6 +1,5 @@
 from itertools import permutations
 
-
 SEGMENTS = "abcdefg"
 PERMUTATIONS = permutations(SEGMENTS, 7)
 NUMBERS = [

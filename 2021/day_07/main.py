@@ -33,6 +33,4 @@ def best_fuel_consumption(positions, fuel_function):
 positions = get_input_positions()
 
 print(f"fuel_consumption for best position: {best_fuel_consumption(positions, basic_crab_fuel_consumption)}")
-print(
-    f"fuel_consumption for crab best position: {best_fuel_consumption(positions, engineering_crab_fuel_consumption)}"
-)
+print(f"fuel_consumption for crab best position: {best_fuel_consumption(positions, engineering_crab_fuel_consumption)}")

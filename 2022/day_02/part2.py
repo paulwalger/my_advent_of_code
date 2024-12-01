@@ -33,7 +33,6 @@ def score_round(opponent_enc_play: str, expected_result: str):
 
 
 def main():
-
     with open("input.txt", "r") as input_file:
         rounds = [line.strip().split() for line in input_file]
         scores = [score_round(round[0], round[1]) for round in rounds]

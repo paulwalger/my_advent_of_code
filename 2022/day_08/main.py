@@ -58,21 +58,9 @@ def main():
     with open("input.txt", "r") as input_file:
         forest = [list(map(int, list(line.strip()))) for line in input_file]
 
-        print(
-            sum(
-                is_visible(forest, x, y)
-                for y in range(len(forest[0]))
-                for x in range(len(forest))
-            )
-        )
+        print(sum(is_visible(forest, x, y) for y in range(len(forest[0])) for x in range(len(forest))))
 
-        print(
-            max(
-                scenic_score(forest, x, y)
-                for y in range(len(forest[0]))
-                for x in range(len(forest))
-            )
-        )
+        print(max(scenic_score(forest, x, y) for y in range(len(forest[0])) for x in range(len(forest))))
 
 
 if __name__ == "__main__":

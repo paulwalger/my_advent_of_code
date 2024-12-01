@@ -22,7 +22,6 @@ def sum_dicts(dicts):
 
 
 def count_elements_recursively(pair, remaining_step, pair_insertion, memo={}):
-
     if (pair, remaining_step) in memo:
         return memo[(pair, remaining_step)]
 
@@ -58,8 +57,10 @@ def difference_between_most_and_least_occurences_after_steps(template, pair_inse
 
 
 print(
-    f"Difference after 10 steps: {difference_between_most_and_least_occurences_after_steps(get_template(), get_pair_insertion(), 10)}"
+    f"Difference after 10 steps: "
+    f"{difference_between_most_and_least_occurences_after_steps(get_template(), get_pair_insertion(), 10)}"
 )
 print(
-    f"Difference after 40 steps: {difference_between_most_and_least_occurences_after_steps(get_template(), get_pair_insertion(), 40)}"
+    f"Difference after 40 steps: "
+    f"{difference_between_most_and_least_occurences_after_steps(get_template(), get_pair_insertion(), 40)}"
 )
