@@ -1,6 +1,6 @@
 # https://adventofcode.com/2024/day/1
 
-from typing import Counter
+from collections import Counter
 
 # parse input
 
