@@ -1,7 +1,6 @@
 # https://adventofcode.com/2024/day/3
 
 import re
-from functools import reduce
 from operator import mul
 
 # parse input
@@ -34,7 +33,7 @@ do = True
 sum = 0
 for instruction in instructions:
     if do and instruction.startswith("mul"):
-        sum += reduce(mul, map(int, re.findall(r"\d+", instruction)))
+        sum += mul(*map(int, re.findall(r"\d+", instruction)))
     else:
         do = True if instruction == "do()" else False
 
