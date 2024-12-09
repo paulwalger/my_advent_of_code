@@ -6,7 +6,7 @@
 
 import itertools
 
-with open("2024/day_07/input.txt", "r") as input_file:
+with open("2024/day_07/test.txt", "r") as input_file:
     rows = [row.strip() for row in input_file]
     equations = []
     for row in rows:
@@ -21,15 +21,15 @@ def can_equation_be_true(equation, set_operators="+*"):
     value, numbers = equation
     size = len(numbers)
     for operators in itertools.product(set_operators, repeat=size - 1):
-        test_value = numbers[0]
+        result = numbers[0]
         for idx, op in enumerate(operators):
             if op in "+*":
-                test_value = eval(f"{test_value} {op} {numbers[idx+1]}")
+                result = eval(f"{result} {op} {numbers[idx+1]}")
             else:
-                test_value = int(f"{test_value}{numbers[idx+1]}")
-            if test_value > int(value):
+                result = int(f"{result}{numbers[idx+1]}")
+            if result > int(value):
                 break
-        if test_value == int(value):
+        if result == int(value):
             return True
     return False
 
