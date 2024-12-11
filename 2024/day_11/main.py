@@ -18,7 +18,7 @@ def blink_at_stone(stone: int):
     if len(str(stone)) % 2 == 0:
         return [
             int(str(stone)[: len(str(stone)) // 2]),
-            int(str(stone)[len(str(stone)) // 2 :].lstrip("0") or "0"),
+            int(str(stone)[len(str(stone)) // 2 :]),
         ]
     return [stone * 2024]
 
